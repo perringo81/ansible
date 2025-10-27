@@ -1,6 +1,6 @@
 ---
 - name: Check Apache version on Ubuntu
-  hosts: All # Replace with your inventory group or hostname
+  hosts: all # Replace with your inventory group or hostname
   become: yes # Use sudo if necessary to run the command
 
   tasks:
