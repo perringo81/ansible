@@ -1,0 +1,14 @@
+---
+- name: Check Apache version on Ubuntu
+  hosts: All # Replace with your inventory group or hostname
+  become: yes # Use sudo if necessary to run the command
+
+  tasks:
+    - name: Get Apache version
+      ansible.builtin.command: apache2 -v
+      register: apache_version_output
+      changed_when: false # This command does not change the system state
+
+    - name: Display Apache version
+      ansible.builtin.debug:
+        msg: "Apache version on {{ inventory_hostname }}: {{ apache_version_output.stdout }}"
